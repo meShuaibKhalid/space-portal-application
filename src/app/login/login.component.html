@@ -14,13 +14,16 @@
                   id="email-address"
                   placeholder="name@example.com"
                   formControlName="email"
+                  #email="ngModel"
                 />
-                <div class="text-danger" *ngIf="loginFormControl['email'].errors?.['required']">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <div class="text-danger" *ngIf="loginFormControl['email'].errors?.['required']">
                   Email is required.
                 </div>
                 <div class="text-danger" *ngIf="loginFormControl['email'].errors?.['email']">
                     Enter a valid email.
                   </div>
+                </div>
               </div>
               <div class="mb-3 w-100">
                 <label for="passowrd" class="form-label"
@@ -31,7 +34,9 @@
                   class="form-control"
                   id="passowrd"
                   formControlName="password"
+                  #password="ngModel"
                 />
+                <div *ngIf="password.invalid && (password.dirty || password.touched)"></div>
                 <div class="text-danger" *ngIf="loginFormControl['password'].errors?.['required']">
                   Password is required.
                 </div>
