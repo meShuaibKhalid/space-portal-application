@@ -1,0 +1,18 @@
+.login-form {
+    width: 100%;
+    height: 100vh;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside {
+    background-color: bisque;
+    background-size: cover;
+    background-position: left;
+    background-image: url("https://www.teslarati.com/wp-content/uploads/2023/01/Starbase-010923-SpaceX-OLS-B7-S24-full-stack-5-crop-c.jpg");
+}

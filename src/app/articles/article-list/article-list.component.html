@@ -1,0 +1,28 @@
+<app-nav></app-nav>
+<div class="mt-5 container-fluid px-5">
+  <div class="row">
+    <h2 class="text-center">All Articles</h2>
+  </div>
+  <div class="cards mt-4 mx-0">
+    <div
+      class="d-flex justify-content-center align-items-center"
+      *ngFor="let article of articleList$ | async"
+    >
+      <div
+        class="custom-card"
+        [routerLink]="['/article', article.id]"
+        routerLinkActive="router-link-active"
+      >
+        <div
+          class="article-image"
+          [ngStyle]="{ 'background-image': 'url(' + article.imageUrl + ')' }"
+        ></div>
+        <div class="article-title">{{ article.title }}</div>
+        <div class="article-details">
+          <span>Updated At {{ article.updatedAt | date : "dd/MM/yyyy" }}</span>
+          <span>{{ getMinutesToRead(article.summary) }} min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

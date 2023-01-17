@@ -1,0 +1,21 @@
+<app-nav></app-nav>
+<div class="container" *ngIf="article$ | async as article">
+    <div class="custom-card">
+        <div class="card-info">
+            <div class="article-details">
+                <span>Updated At {{ article.updatedAt | date : "dd/MM/yyyy" }}</span>
+                <span>{{ getMinutesToRead(article.summary) }} min read</span>
+            </div>
+            <h3>{{article.title}}</h3>
+            <p>{{article.summary}}...</p>
+            <div class="article-details">
+                <span>Pulished by {{ article.newsSite}} at {{article.publishedAt | date : "dd/MM/yyyy"}}</span>
+            </div>
+
+            <a [href]="article?.url"  target="_blank">Read full article</a>
+        </div>
+        <div class="card-image">
+            <img [src]="article.imageUrl" alt="">
+        </div>
+    </div>
+</div>
