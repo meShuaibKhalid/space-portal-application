@@ -21,7 +21,6 @@ export class ArticleComponent implements OnInit {
     const articleId = this.route.snapshot.paramMap.get('id');
     if (articleId) {
       this.article$ = this.dataService.getArticleById(articleId);
-      this.article$.subscribe(console.log)
     }
   }
 
