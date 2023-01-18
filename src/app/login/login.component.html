@@ -4,47 +4,70 @@
       <div class="login-form">
         <h1 class="mb-4 align-self-start">Login</h1>
         <form [formGroup]="loginForm" class="mb-3 w-100">
-            <div class="mb-3">
-                <label for="email-address" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email-address"
-                  placeholder="name@example.com"
-                  formControlName="email"
-                  #email="ngModel"
-                />
-                <div *ngIf="email.invalid && (email.dirty || email.touched)">
-                  <div class="text-danger" *ngIf="loginFormControl['email'].errors?.['required']">
-                  Email is required.
-                </div>
-                <div class="text-danger" *ngIf="loginFormControl['email'].errors?.['email']">
-                    Enter a valid email.
-                  </div>
-                </div>
+          <div class="mb-3">
+            <label for="email-address" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email-address"
+              placeholder="name@example.com"
+              formControlName="email"
+            />
+            <div
+              *ngIf="
+                !loginFormControl['email'].valid &&
+                (loginFormControl['email']?.dirty ||
+                  loginFormControl['email']?.touched)
+              "
+            >
+              <div
+                class="text-danger"
+                *ngIf="loginFormControl['email'].errors?.['required']"
+              >
+                Email is required.
               </div>
-              <div class="mb-3 w-100">
-                <label for="passowrd" class="form-label"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  id="passowrd"
-                  formControlName="password"
-                  #password="ngModel"
-                />
-                <div *ngIf="password.invalid && (password.dirty || password.touched)"></div>
-                <div class="text-danger" *ngIf="loginFormControl['password'].errors?.['required']">
-                  Password is required.
-                </div>
+              <div
+                class="text-danger"
+                *ngIf="loginFormControl['email'].errors?.['email']"
+              >
+                Enter a valid email.
               </div>
+            </div>
+          </div>
+          <div class="mb-3 w-100">
+            <label for="passowrd" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="passowrd"
+              formControlName="password"
+            />
+            <div
+              *ngIf="
+                !loginFormControl['password'].valid &&
+                (loginFormControl['password']?.dirty ||
+                  loginFormControl['password']?.touched)
+              "
+            >
+              <div
+                class="text-danger"
+                *ngIf="loginFormControl['password'].errors?.['required']"
+              >
+                Password is required.
+              </div>
+            </div>
+          </div>
 
-              <div class="d-grid pt-3">
-                <button class="btn btn-primary" type="button" [disabled]="loginForm.invalid" (click)="login()">Login</button>
-              </div>
+          <div class="d-grid pt-3">
+            <button
+              class="btn btn-primary"
+              type="button"
+              [disabled]="loginForm.invalid"
+              (click)="login()"
+            >
+              Login
+            </button>
+          </div>
         </form>
       </div>
     </div>

@@ -7,6 +7,11 @@
   flex-wrap: wrap;
   margin-top: 40px;
 
+  @media screen and (max-width: 992px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
   .card-info {
     display: flex;
     flex-direction: column;
@@ -16,15 +21,20 @@
     margin: 10px 0;
 
     .article-details {
-        display: flex;
-        justify-content: space-between;
-        color: #999;
-        font-weight: 600;
-        width: 100%;
+      display: flex;
+      justify-content: space-between;
+      color: #999;
+      font-weight: 600;
+      width: 100%;
     }
 
     a {
-        margin-top: 10px;
+      margin-top: 10px;
+    }
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      padding: 10px 0;
     }
   }
 
@@ -37,6 +47,9 @@
       border-radius: 8px;
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
         rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    }
+    @media screen and (max-width: 992px) {
+      width: 100%;
     }
   }
 }
